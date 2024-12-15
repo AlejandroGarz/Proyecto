@@ -1,6 +1,5 @@
+package taller
 import scala.collection.parallel.CollectionConverters._
-package taller{
-
 class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]) {
 
   private def costoRiegoTablon(index: Int, finca: Vector[(Int, Int, Int)], pi: Vector[Int]): Int = {
@@ -20,4 +19,4 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
   def costoTotalPar(pi: Vector[Int]): Int = {
     costoRiegoFincaPar(pi) + costoMovilidadPar(pi)
   }
-}}
+}
