@@ -104,7 +104,7 @@ class Finca {
         for (j <- 1 until pi.length) {
             val prevTablon = pi(j - 1) // Tablón anterior en la programación
             val currTablon = pi(j)     // Tablón actual
-            tiempos(currTablon) = tiempos(prevTablon) + treg(f, prevTablon)
+            tiempos(currTablon) = tiempos(prevTablon) + tReg(f, prevTablon)
         }
         
         tiempos.toVector // Convertir el Array a un Vector antes de devolver
