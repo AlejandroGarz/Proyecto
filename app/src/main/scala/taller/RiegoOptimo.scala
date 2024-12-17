@@ -19,4 +19,8 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
   def costoTotalPar(pi: Vector[Int]): Int = {
     costoRiegoFincaPar(pi) + costoMovilidadPar(pi)
   }
+  def generarProgramacionesRiegoPar(): Vector[ProgRiego] = {
+      val indices = (0 until finca.length).toVector
+      indices.permutations.toVector.par.toVector
+  }
 }
