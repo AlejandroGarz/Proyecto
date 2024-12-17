@@ -4,7 +4,7 @@ import scala.util.Random
 
 object App {
   def main(args: Array[String]): Unit = {
-    //se sube la medicion de los costos tanto secuencial como paralelo 
+    //se sube la medicion de los costos tanto secuencial como paralelo.
     type Tablon = (Int, Int, Int) 
     type Finca = Vector[Tablon]
     type Distancia = Vector[Vector[Int]]
