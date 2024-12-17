@@ -1,12 +1,12 @@
 package taller
 import scala.collection.parallel.CollectionConverters._
 class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]) {
-  type ProgRiego = Vector [ Int ]                                                                                                                                          //Hay problemas? Franco resuelve
+  type ProgRiego = Vector [ Int ]
 
   private def costoRiegoTablon(index: Int, finca: Vector[(Int, Int, Int)], pi: Vector[Int]): Int = {
     val (ts, tr, p) = finca(index)
     val tInicio = pi.indexOf(index) * tr
-    val tFinal = tInicio + tr
+    val tFinal = tInicio +tr
     if (tInicio > ts) {
       p * (tInicio - ts)
     } else   {
@@ -39,4 +39,6 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
     )
     costos.minBy(_._2)
   }
+
+
 }
