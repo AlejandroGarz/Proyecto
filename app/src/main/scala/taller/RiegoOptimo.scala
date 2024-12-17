@@ -9,10 +9,8 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
     val tFinal = tInicio + tr
     if (tInicio > ts) {
       p * (tInicio - ts)
-    } else if (tFinal > ts) {
+    } else   {
       p * (tFinal - ts)
-    } else {
-      0
     }
   }
 
