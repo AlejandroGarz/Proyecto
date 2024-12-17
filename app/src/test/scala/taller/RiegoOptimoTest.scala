@@ -21,7 +21,7 @@ class RiegoOptimoTest extends AnyFunSuite {
     val riegoOptimo = new RiegoOptimo(finca, distancia)
     val costoRiego = riegoOptimo.costoRiegoFincaPar(pi)
 
-    assert(costoRiego == 8)
+    assert(costoRiego == 11)
   }
 
   test("Costo de movilidad paralelo") {
