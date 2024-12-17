@@ -1,6 +1,7 @@
 package taller
 import scala.collection.parallel.CollectionConverters._
 class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]) {
+  type ProgRiego = Vector[Int]
 
   private def costoRiegoTablon(index: Int, finca: Vector[(Int, Int, Int)], pi: Vector[Int]): Int = {
     val (ts, tr, p) = finca(index)
@@ -22,5 +23,13 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
   def generarProgramacionesRiegoPar(): Vector[ProgRiego] = {
       val indices = (0 until finca.length).toVector
       indices.permutations.toVector.par.toVector
+  }
+
+  def ProgramacionRiegoOptimoPar(): (ProgRiego, Int) = {
+    val programaciones = generarProgramacionesRiegoPar()
+    val costos = programaciones.par.map(pi =>
+      (pi, costoRiegoFincaPar(pi) + costoMovilidadPar(pi))
+    )
+    costos.minBy(_._2)
   }
 }
