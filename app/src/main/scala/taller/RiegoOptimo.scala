@@ -6,7 +6,14 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
   private def costoRiegoTablon(index: Int, finca: Vector[(Int, Int, Int)], pi: Vector[Int]): Int = {
     val (ts, tr, p) = finca(index)
     val tInicio = pi.indexOf(index) * tr
-    if (tInicio > ts) p * (tInicio - ts) else 0
+    val tFinal = tInicio + tr
+    if (tInicio > ts) {
+      p * (tInicio - ts)
+    } else if (tFinal > ts) {
+      p * (tFinal - ts)
+    } else {
+      0
+    }
   }
 
   def costoRiegoFincaPar(pi: Vector[Int]): Int = {
@@ -34,6 +41,4 @@ class RiegoOptimo(finca: Vector[(Int, Int, Int)], distancia: Vector[Vector[Int]]
     )
     costos.minBy(_._2)
   }
-
-
 }
